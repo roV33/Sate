@@ -1,19 +1,20 @@
--- i think you wrong place please get out here
+-- just coding bro
 
 local games = {
-    [4924922222] = "",
+    [4924922222] = "https://raw.githubusercontent.com/GrexXMeng/Mengs/refs/heads/main/StealAnEgg.lua",
     
 }
 
 local currentPlaceID = game.PlaceId
 local currentUniverseID = game.GameId
+
 local scriptURL = games[currentUniverseID] or games[currentPlaceID]
 
 if scriptURL then
-    print("Sate Hub: Loading script for ID " .. (games[currentUniverseID] and "Universe" or "Place"))
+    print("Sate Hub: Loading game script")
     loadstring(game:HttpGet(scriptURL))()
 else
-    local msg = "\nMap not supported yet!\nPlaceId: " .. tostring(currentPlaceID) .. "\nUniverseId: " .. tostring(currentUniverseID)
-    game.Players.LocalPlayer:Kick(msg)
-    print(msg)
+    print("Sate Hub: Game tidak ada di list, loading Universal UI...")
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/roV33/Sate/refs/heads/main/Fly%20gui"))()
 end
